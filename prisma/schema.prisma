@@ -1,0 +1,157 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["relationJoins"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id
+  role          String?
+  name          String
+  email         String    @unique
+  emailVerified Boolean
+  image         String?
+  createdAt     DateTime
+  updatedAt     DateTime
+  phone         String?
+  address       Address[]
+  orders        Order[]
+  Account       Account[]
+  Session       Session[]
+
+  @@map("user")
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("session")
+}
+
+model Account {
+  id           String    @id
+  accountId    String
+  providerId   String
+  userId       String
+  accessToken  String?
+  refreshToken String?
+  idToken      String?
+  expiresAt    DateTime?
+  password     String?
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("account")
+}
+
+model Verification {
+  id         String    @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime?
+
+  @@map("verification")
+}
+
+model Product {
+  name             String
+  price            String
+  salePrice        String?
+  image            String?
+  categoryId       String?
+  id               Int             @id @default(autoincrement())
+  qty              Int?            @default(0)
+  orderCounts      Int?            @default(0)
+  inStock          Int?            @default(1)
+  category         Category?       @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  tagId            String?
+  tag              Tag?            @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  brandId          String?
+  brand            Brand?          @relation(fields: [brandId], references: [id], onDelete: Cascade)
+  orders           Order[]         @relation("OrderToProduct")
+  parentCategoryId String?
+  parentCategory   ParentCategory? @relation(fields: [parentCategoryId], references: [id])
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @default(now())
+}
+
+model Category {
+  id               String          @id @default(uuid())
+  name             String
+  products         Product[]
+  parentCategoryId String?
+  parentCategory   ParentCategory? @relation(references: [id], fields: [parentCategoryId])
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @default(now())
+}
+
+model ParentCategory {
+  id        String     @id @default(uuid())
+  name      String
+  image     String?
+  category  Category[]
+  products  Product[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @default(now())
+}
+
+model Tag {
+  id        String    @id @default(uuid())
+  name      String
+  products  Product[]
+  isTag     Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now())
+}
+
+model Brand {
+  id        String    @id @default(uuid())
+  name      String
+  image     String?
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now())
+}
+
+model Slider {
+  id        String   @id @default(uuid())
+  link      String
+  image     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model Address {
+  id          String   @id @default(uuid())
+  address     String
+  userId      String
+  housenumber Int
+  ring        Int
+  user        User     @relation(fields: [userId], references: [id])
+  order       Order[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+}
+
+model Order {
+  id           String    @id @default(uuid())
+  userId       String
+  orderstatus  String
+  itemsordered Json?
+  addressId    String?
+  paymentType  String?
+  address      Address?  @relation(fields: [addressId], references: [id])
+  user         User      @relation(fields: [userId], references: [id])
+  products     Product[] @relation("OrderToProduct")
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @default(now())
+}

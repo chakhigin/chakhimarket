@@ -9,16 +9,30 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
-    "next": "15.0.3"
+    "@headlessui/react": "^2.2.0",
+    "@prisma/client": "^5.22.0",
+    "akar-icons": "^1.9.31",
+    "axios": "^1.7.7",
+    "better-auth": "^0.8.7-beta.4",
+    "cookies-next": "^5.0.2",
+    "embla-carousel-react": "^8.5.1",
+    "next": "15.0.3",
+    "nuqs": "^2.2.3",
+    "react": "^19.0.0",
+    "react-cookie": "^7.2.2",
+    "react-dom": "^19.0.0",
+    "react-multi-carousel": "^2.8.5",
+    "sonner": "^1.7.0",
+    "swiper": "^11.1.15",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1"
+    "prisma": "^5.22.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }

@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Tag" ADD COLUMN     "isTag" BOOLEAN NOT NULL DEFAULT true;

@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      boxShadow:{
+        "card-shadow":"var(--shadow-box)"
+      },
     },
   },
   plugins: [],

@@ -1,17 +1,23 @@
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import ContextProvider from "./context/contextProvider";
+import { Toaster } from "sonner";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
+const iranYekan = localFont({
+  src: "./fonts/PeydaWebFaNum-bold.woff2",
+  variable: "--font-iranyekan",
   weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+  display: 'swap'
+})
+
+const iranYekaniran = localFont({
+  src: "./fonts/IRANYekanXVF.woff",
+  variable: "--font-iranyekaniran",
   weight: "100 900",
-});
+  display: 'swap'
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,11 +30,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fa">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${iranYekan.variable} ${iranYekaniran.variable} antialiased`}
       >
-        {children}
+        <main>
+          <div className="h-screen">
+            <NuqsAdapter>
+              <ContextProvider>
+                {children}
+                <Toaster position="bottom-center" />
+              </ContextProvider>
+            </NuqsAdapter>
+          </div>
+        </main>
       </body>
     </html>
   );
