@@ -6,14 +6,14 @@ import ContextProvider from "./context/contextProvider";
 import { Toaster } from "sonner";
 
 const iranYekan = localFont({
-  src: "./fonts/PeydaWebFaNum-bold.woff2",
+  src: "../../public/fonts/PeydaWebFaNum-bold.woff2",
   variable: "--font-iranyekan",
   weight: "100 900",
   display: 'swap'
 })
 
 const iranYekaniran = localFont({
-  src: "./fonts/IRANYekanXVF.woff",
+  src: "../../public/fonts/IRANYekanXVF.woff",
   variable: "--font-iranyekaniran",
   weight: "100 900",
   display: 'swap'
