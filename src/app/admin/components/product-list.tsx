@@ -58,7 +58,7 @@ function ProductList(props: ProductListProps) {
                             </span>
                         </div>
                         <div className="flex items-center justify-center w-[82px] h-[82px]">
-                            <Image src={`http://localhost:3000/images/${product.image}`} alt={product.name} width={49} height={49} />
+                            <Image src={`/images/${product.image}`} alt={product.name} width={49} height={49} />
                         </div>
                         <div className="w-48 max-w-48">
                             <span className="text-[12px] line-clamp-1">{product.name}</span>

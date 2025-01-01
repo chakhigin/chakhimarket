@@ -28,7 +28,7 @@ function CartList(props:CartListProps){
                     <div className="flex items-center justify-between mb-4 pb-4 border-b-2 border-b-[var(--border-color)]" key={index}>
                         <div className="flex items-center gap-2">
                             <div className="w-[50px] h-[50px]">
-                                <Image src={`http://localhost:3000/images/${item.image}`} alt={item.name} width={50} height={50} className="rounded-full border border-[var(--border-color)]" />
+                                <Image src={`/images/${item.image}`} alt={item.name} width={50} height={50} className="rounded-full border border-[var(--border-color)]" />
                             </div>
                             <div className="flex flex-col">
                                 <div><span className="text-[12px]">{item.name}</span></div>
