@@ -5,12 +5,9 @@ import "./globals.css";
 import ContextProvider from "./context/contextProvider";
 import { Toaster } from "sonner";
 
-// const iranYekan = localFont({
-//   src: "../../public/fonts/PeydaWebFaNum-bold.woff2",
-//   variable: "--font-iranyekan",
-//   weight: "100 900",
-//   display: 'swap'
-// })
+const iranYekan = localFont({
+  src: "./PeydaWebFaNum-bold.woff2",
+})
 
 // const iranYekaniran = localFont({
 //   src: "../../public/fonts/IRANYekanXVF.woff",
@@ -32,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="fa">
       <body
-        className={`antialiased`}
+        className={`${iranYekan.className} antialiased`}
       >
         <main>
           <div className="h-screen">
