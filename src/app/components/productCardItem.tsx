@@ -25,7 +25,7 @@ function ProductCardItem(props: ProductCardItemProps) {
                 <div className="flex flex-col relative h-[218px] max-h-[218px] bg-[#fff] border border-[var(--border-color)] rounded-md shadow-card-shadow">
                     <div className="relative w-full flex items-center justify-center">
                         <div className="w-[130px] h-[130px] p-3">
-                            <Image src={`${props.product.image}`} alt={props.product.name} width={130} height={130} className="rounded-md" />
+                            <Image src={`https://chakhimarket.netlify.app/images/${props.product.image}`} alt={props.product.name} width={130} height={130} className="rounded-md" />
                             <div className="flex items-center justify-center absolute bottom-0 right-2 p-1 border w-[32px] h-[30px] rounded-full bg-[#fff] shadow-xl" onClick={() => handleAddToCart(props.product)}>
                                 <Plus />
                             </div>
