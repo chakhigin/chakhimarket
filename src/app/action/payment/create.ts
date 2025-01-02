@@ -26,7 +26,7 @@ async function CreatePayment(prevState:any,formData : FormData){
                 products:{
                     connect:productIds
                 },
-                itemsordered:{product},
+                // itemsordered:{product},
                 paymentType:paymentType,
                 addressId:address,
                 orderstatus:orderStatus
