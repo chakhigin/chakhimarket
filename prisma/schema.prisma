@@ -5,7 +5,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -147,7 +147,6 @@ model Order {
   id           String    @id @default(uuid())
   userId       String
   orderstatus  String
-  itemsordered Json?
   addressId    String?
   paymentType  String?
   address      Address?  @relation(fields: [addressId], references: [id])

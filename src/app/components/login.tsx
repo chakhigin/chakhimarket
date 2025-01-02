@@ -4,11 +4,14 @@ import { useState } from "react";
 import Button from "./ui/button";
 import Input from "./ui/input";
 import { authClient } from "../lib/auth-client";
+import { toast } from "sonner";
 
 function SignIn() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading,setLoading] = useState(false);
+    const [error,setError] = useState("");
 
     const emailChange = (e: any) => {
         setEmail(e.target.value);
@@ -23,9 +26,24 @@ function SignIn() {
             email,
             password,
             callbackURL: "/account",
+        },{
+            onRequest : (ctx) => {
+                setLoading(true);
+            },
+            onSuccess : (ctx) => {
+                setLoading(false);
+            },
+            onError : (ctx) => {
+                console.log(ctx.error);
+                setLoading(false);
+                if(ctx.error.message === "Invalid email"){
+                    toast.error("ایمیل نامعتبر هست");
+                }
+                if(ctx.error.message === "Invalid email or password"){
+                    toast.error("ایمیل یا رمزعبور اشتباه هست");
+                }
+            }
         });
-        console.log(data);
-        console.log(error);
     }
 
     return (
@@ -38,7 +56,7 @@ function SignIn() {
                     <div className="flex flex-col gap-3">
                         <Input type="email" id="email" name="email" value={email} placeholder="ایمیل" onChange={emailChange} />
                         <Input type="password" id="password" name="password" value={password} placeholder="رمزعبور" onChange={passwordChange} />
-                        <Button onPress={Signin}>ورود به حساب کاربری</Button>
+                        <Button onPress={Signin} disable={loading}>{loading ? "کمی صبر کنید" : "ورود به حساب کاربری"}</Button>
                     </div>
                 </div>
             </div>

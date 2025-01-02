@@ -104,21 +104,21 @@ async function ProductItems(props: ProductItemsProps) {
     //     }
     // })
 
-    const dailyBuy = await prisma.product.findMany({
-        where:{
-            tag:{
-                name:"روزمره"
-            }
-        },
-        include:{
-            category:true,
-            tag:true
-        }
-    })
+    // const dailyBuy = await prisma.product.findMany({
+    //     where:{
+    //         tag:{
+    //             name:"روزمره"
+    //         }
+    //     },
+    //     include:{
+    //         category:true,
+    //         tag:true
+    //     }
+    // })
 
     return (
         <div>
-            <ProductSlider products={dailyBuy} categoryName="روزمره" tag={true} />
+            {/* <ProductSlider products={dailyBuy} categoryName="روزمره" tag={true} /> */}
             {/* <ProductSlider products={pasta} categoryName="پاستا"/>
             <ProductSlider products={categoryItem2} categoryName="حبوبات"/>
             <ProductSlider products={categoryItem3} categoryName="دستمال کاغذی"/>
