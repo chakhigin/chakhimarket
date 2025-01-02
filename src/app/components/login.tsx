@@ -19,11 +19,14 @@ function SignIn() {
     }
 
     const Signin = async () => {
-        const { data, error } = await authClient.signIn.email({
+        const { data, error } = await authClient.signUp.email({
+            name:"chakhi",
             email,
             password,
-            callbackURL: "/account"
+            callbackURL: "/account",
         });
+        console.log(data);
+        console.log(error);
     }
 
     return (
