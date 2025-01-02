@@ -4,6 +4,8 @@ import { useState } from "react";
 import Button from "./ui/button";
 import Input from "./ui/input";
 import { authClient } from "../lib/auth-client";
+import { Auth } from "../lib/auth-user";
+import { auth } from "../lib/auth";
 
 function SignIn() {
 
@@ -19,13 +21,14 @@ function SignIn() {
     }
 
     const Signin = async () => {
-        const { data, error } = await authClient.signIn.email({
-            email,
-            password,
-            callbackURL: "/account",
+
+        const user = await auth.api.signInEmail({
+            body:{
+                email,
+                password,
+            }
         });
-        console.log(data);
-        console.log(error);
+        console.log(user);
     }
 
     return (
