@@ -32,6 +32,11 @@
   }
 }
 
+@font-face{
+  src:url("./PeydaWebFaNum-bold.woff2");
+  font-family:"iranYekan";
+}
+
 html{
   direction: rtl;
 }
@@ -39,7 +44,7 @@ html{
 body {
   color: var(--foreground);
   background: var(--background-color);
-  font-family: var(--font-iranyekan);
+  font-family: "iranYekan";
 }
 
 input,button{
@@ -69,5 +74,5 @@ input,button{
 }
 
 :where([data-sonner-toast]) :where([data-title]){
-  font-family:var(--font-iranyekan);
+  font-family:"iranYekan";
 }
