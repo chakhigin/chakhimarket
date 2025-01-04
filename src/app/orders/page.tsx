@@ -3,6 +3,7 @@ import Title from "../components/ui/title";
 import { Auth } from "../lib/auth-user";
 import { prisma } from "../lib/db";
 import OrderItems from "./_components/order-items";
+import BottomHeader from "../components/bottomHeader";
 
 async function page() {
 
@@ -20,11 +21,9 @@ async function page() {
 
     if (orders.length === 0) {
         return (
-            <div className="h-auto">
+            <div className="flex items-center justify-center min-h-full">
                 <div className="flex items-center justify-center min-h-full">
-                    <div className="flex items-center justify-center min-h-full">
-                        هیچ سفارشی ثبت نکردید
-                    </div>
+                    هیچ سفارشی ثبت نکردید
                 </div>
             </div>
         )

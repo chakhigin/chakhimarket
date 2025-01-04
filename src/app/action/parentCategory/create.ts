@@ -15,8 +15,9 @@ async function AddParentCategory(prevState: any,formData: FormData){
             image
         }
     })
-    revalidatePath("/admin/category");
+    
     if(data){
+        revalidatePath("/admin/category");
         return true;
     }else{
         return "دسته بندی اضافه نشد";

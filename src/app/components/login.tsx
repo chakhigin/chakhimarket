@@ -34,7 +34,6 @@ function SignIn() {
                 setLoading(false);
             },
             onError : (ctx) => {
-                console.log(ctx.error);
                 setLoading(false);
                 if(ctx.error.message === "Invalid email"){
                     toast.error("ایمیل نامعتبر هست");

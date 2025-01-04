@@ -30,6 +30,16 @@ function OrdersList(props: OrdersListProps) {
         setOrder(order);
     }
 
+    if (props.orders.length === 0) {
+        return (
+            <div className="flex flex-col items-center justift-center mt-4 mb-4">
+                <div className="text-[14px]">
+                    سفارشی نداشتید
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div>
             <div className="flex items-center w-full">
@@ -63,7 +73,6 @@ function OrdersList(props: OrdersListProps) {
                 </div>
             </div>
             <EditOrder orderId={orderId} />
-            {/* <ShowOrder order={order} /> */}
         </div>
     )
 }

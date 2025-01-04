@@ -6,10 +6,10 @@ import { useContext } from "react";
 import { CartContext } from "../context/cartContext";
 import PageHeader from "../components/pageHeader";
 
-function page(){
-    const {cart} = useContext<any>(CartContext);
-    
-    return(
+function page() {
+    const { cart } = useContext<any>(CartContext);
+
+    return (
         <div className={`max-w-xl ${cart.length < 8 ? "h-full" : "h-auto"} m-auto pb-28 bg-[var(--background-color)]`}>
             <PageHeader title="سبد خرید" backIcon backHref="/">
             </PageHeader>

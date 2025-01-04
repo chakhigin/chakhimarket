@@ -15,11 +15,9 @@ export default function RootLayout({
 }>) {
     return (
         <Layout>
-            <div>
-                <PageHeader title="سفارشات" backIcon={true} backHref="/" />
-                {children}
-                <BottomHeader />
-            </div>
+            <PageHeader title="سفارشات" backIcon={true} backHref="/" />
+            {children}
+            <BottomHeader />
         </Layout>
     );
 }
