@@ -24,7 +24,7 @@ function InputUploader(props: InputUploaderProps) {
             const formData = new FormData();
             formData.append("file", file[0]);
             try {
-                const data: any = await axios.post("http://localhost:3000/api/upload", formData)
+                const data: any = await axios.post("https://chakhimarket.netlify.app/api/upload", formData);
                 setImage(data.data.content);
                 setCookie("product-image-name", data.data.content);
             }

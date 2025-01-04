@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 import path from "path";
 import { writeFile } from "fs/promises"; 
 
-export const POST = async (req:NextRequest,res:NextResponse) => {
+export const POST = async (req:NextRequest) => {
   const formData = await req.formData();
 
   const file = formData.get("file")  as File || null;
