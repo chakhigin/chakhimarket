@@ -16,12 +16,12 @@ export const POST = async (req:NextRequest) => {
   const filename = file.name.replaceAll(" ", "_"); 
   try {
     await writeFile(
-      path.join(process.cwd(), "/public/images/" + filename),
+      path.join("/public/images/" + filename),
       buffer
     );
     return NextResponse.json({ content: filename, status: 201 });
   } catch (error) {
     console.log("Error occured ", error);
-    return NextResponse.json({ content: error, status: 500 });
+    return NextResponse.json({ content: "Failed", status: 500 });
   }
 };
