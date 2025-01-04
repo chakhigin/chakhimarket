@@ -26,6 +26,7 @@ function InputUploader(props: InputUploaderProps) {
             try {
                 const data: any = await axios.post("https://chakhimarket.netlify.app/api/upload", formData);
                 setImage(data.data.content);
+                console.log(data.data.content);
                 setCookie("product-image-name", data.data.content);
             }
             catch (error) {
