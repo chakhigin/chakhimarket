@@ -26,7 +26,7 @@ function InputUploader(props: InputUploaderProps) {
             try {
                 const data: any = await axios.post("https://chakhimarket.netlify.app/api/upload", formData);
                 setImage(data.data.content);
-                console.log(data.data.content);
+                console.log(data.data);
                 setCookie("product-image-name", data.data.content);
             }
             catch (error) {
@@ -54,7 +54,7 @@ function InputUploader(props: InputUploaderProps) {
                         </label>
                     </Field> :
                         <div>
-                            <Image src={`/images/${image}`} alt="" width={139} height={139} /> 
+                            <Image src={`https://chakhimarket.netlify.app/images/${image}`} alt="" width={139} height={139} /> 
                             <input type="hidden" name={props.name} value={image} />
                             <div className="w-[49px]">
                             <Button unStyle icon={<TrashBin width={13} height={13} color="rgb(248 113 113 / var(--tw-text-opacity, 1))" />} className="text-[12px] text-red-400" onPress={() => setImage(null)}>حذف</Button>
