@@ -37,6 +37,7 @@ function InputUploader(props: InputUploaderProps) {
 
     return (
         <div className="flex items-center">
+            {image}
             <div className="w-full pt-5">
                 {
                     image === null ? <Field>
