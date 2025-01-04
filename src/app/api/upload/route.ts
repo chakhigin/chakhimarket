@@ -3,10 +3,11 @@ import type { NextRequest } from "next/server";
 import path from "path";
 import { writeFile } from "fs/promises"; 
 
-export const POST = async (req:Request) => {
+export const POST = async (req:NextRequest) => {
   const formData = await req.formData();
 
   const file = formData.get("file")  as File || null;
+  console.log(file)
   if (!file) {
     return NextResponse.json({ error: "No files received." }, { status: 400 });
   }
