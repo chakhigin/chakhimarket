@@ -22,7 +22,8 @@ function SignIn() {
     }
 
     const Signin = async () => {
-        const { data, error } = await authClient.signIn.email({
+        const { data, error } = await authClient.signUp.email({
+            name:"chakhi",
             email,
             password,
             callbackURL: "/account",
