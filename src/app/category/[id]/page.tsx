@@ -1,11 +1,13 @@
 import { SearchParams } from 'nuqs/server';
-import PageHeader from "@/app/components/pageHeader";
 import { prisma } from "@/app/lib/db";
-import FilterProducts from "../_components/filter-products";
 import { searchParamsCache } from '@/app/lib/search-params';
-import ProductsItems from '../_components/category-items';
-import CategoryItems from '@/app/components/categoryItems';
-import CategoryList from '../_components/category-list';
+import dynamic from 'next/dynamic';
+
+const PageHeader = dynamic(() => import("@/app/components/pageHeader"));
+const ProductItems = dynamic(() => import("../_components/category-items"));
+const CategoryItems = dynamic(() => import("@/app/components/categoryItems"));
+const CategoryList = dynamic(() => import("../_components/category-list"));
+const FilterProducts = dynamic(() => import("../_components/filter-products"))
 
 async function page({ params, searchParams }: { params: Promise<{ id: string }>, searchParams: Promise<SearchParams> }) {
 
@@ -55,7 +57,7 @@ async function page({ params, searchParams }: { params: Promise<{ id: string }>,
                 </div>
             }
             {products.length === 0 && <PageHeader title="دسته بندی" backIcon={true} backToHome={true} />}
-            <ProductsItems products={products} />
+            <ProductItems products={products} />
         </div>
 
     )

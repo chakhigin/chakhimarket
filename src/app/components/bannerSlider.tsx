@@ -17,12 +17,12 @@ function BannerSlider(props: BannerSliderProps) {
                     <SwiperSlide key={banner.id}>
                         <div key={banner.id} className="w-full h-[280px] rounded-md">
                             <Link href={banner.link} className="w-full h-full rounded-md">
-                                <Image src={`http://localhost:3000/images/${banner.image}`} alt=""
+                                <Image src={`/images/${banner.image}`} alt=""
                                     quality={100}
                                     fill
                                     sizes="100vw"
                                     style={{
-                                        objectFit: 'cover',
+                                        objectFit: 'fill',
                                     }}
                                     className="rounded-md"
                                 />

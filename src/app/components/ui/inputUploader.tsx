@@ -24,9 +24,8 @@ function InputUploader(props: InputUploaderProps) {
             const formData = new FormData();
             formData.append("file", file[0]);
             try {
-                const data: any = await axios.post("https://chakhimarket.netlify.app/api/upload", formData);
-                setImage(data.data.content);
-                console.log(data.data);
+                const data: any = await axios.post("http://localhost:3000/api/upload", formData);
+                setImage(file[0].name);
                 setCookie("product-image-name", data.data.content);
             }
             catch (error) {
@@ -38,7 +37,6 @@ function InputUploader(props: InputUploaderProps) {
 
     return (
         <div className="flex items-center">
-            {image}
             <div className="w-full pt-5">
                 {
                     image === null ? <Field>

@@ -8,17 +8,17 @@ interface ProductItemsProps {
 
 async function ProductItems(props: ProductItemsProps) {
 
-    // const pasta = await prisma.product.findMany({
-    //     where:{
-    //         category:{
-    //             name:"پاستا"
-    //         }
-    //     },
-    //     include:{
-    //         category:true,
-    //         tag:true
-    //     }
-    // })
+    const pasta = await prisma.product.findMany({
+        where:{
+            category:{
+                name:"پاستا"
+            }
+        },
+        include:{
+            category:true,
+            tag:true
+        }
+    })
 
     // const categoryItem2 = await prisma.product.findMany({
     //     where:{
@@ -116,11 +116,24 @@ async function ProductItems(props: ProductItemsProps) {
     //     }
     // })
 
+    const dailyBuy = await prisma.product.findMany({
+        where:{
+            tag:{
+                name:"پخت و پز"
+            }
+        },
+        include:{
+            category:true,
+            tag:true
+        }
+    })
+
     return (
         <div>
             {/* <ProductSlider products={dailyBuy} categoryName="روزمره" tag={true} /> */}
-            {/* <ProductSlider products={pasta} categoryName="پاستا"/>
-            <ProductSlider products={categoryItem2} categoryName="حبوبات"/>
+            <ProductSlider products={dailyBuy} categoryName="پخت و پز" tag={true} />
+            <ProductSlider products={pasta} categoryName="پاستا"/>
+            {/* <ProductSlider products={categoryItem2} categoryName="حبوبات"/>
             <ProductSlider products={categoryItem3} categoryName="دستمال کاغذی"/>
             <ProductSlider products={categoryItem4} categoryName="پودر ماشین"/>
             <ProductSlider products={categoryItem5} categoryName="پنیر پیتزا"/>

@@ -1,8 +1,10 @@
 import { prisma } from "@/app/lib/db";
 import { searchParamsCache } from "@/app/lib/search-params";
 import { SearchParams } from "nuqs";
-import TagItems from "../_components/tag-items";
-import PageHeader from "@/app/components/pageHeader";
+import dynamic from "next/dynamic";
+
+const PageHeader = dynamic(() => import("@/app/components/pageHeader"));
+const TagItems = dynamic(() => import("../_components/tag-items"))
 
 async function page({params,searchParams}: {params: Promise<{ id: string }>,searchParams: Promise<SearchParams>}){
 
