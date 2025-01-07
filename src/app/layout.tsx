@@ -6,11 +6,14 @@ import ContextProvider from "./context/contextProvider";
 import { Toaster } from "sonner";
 
 // const iranYekan = localFont({
-//   src: "./PeydaWebFaNum-bold.woff2",
+//   src: "https://chakhimarket.netlify.app/fonts/PeydaWebFaNum-bold.woff2",
+//   variable: "--font-iranyekan",
+//   weight: "100 900",
+//   display: 'swap'
 // })
 
 // const iranYekaniran = localFont({
-//   src: "../../public/fonts/IRANYekanXVF.woff",
+//   src: "https://chakhimarket.netlify.app/fonts/IRANYekanXVF.woff",
 //   variable: "--font-iranyekaniran",
 //   weight: "100 900",
 //   display: 'swap'

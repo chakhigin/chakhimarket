@@ -2,6 +2,7 @@ import { SearchParams } from 'nuqs/server';
 import { prisma } from "@/app/lib/db";
 import { searchParamsCache } from '@/app/lib/search-params';
 import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 
 const PageHeader = dynamic(() => import("@/app/components/pageHeader"));
 const ProductItems = dynamic(() => import("../_components/category-items"));
@@ -57,7 +58,9 @@ async function page({ params, searchParams }: { params: Promise<{ id: string }>,
                 </div>
             }
             {products.length === 0 && <PageHeader title="دسته بندی" backIcon={true} backToHome={true} />}
-            <ProductItems products={products} />
+            <Suspense>
+                <ProductItems products={products} />
+            </Suspense>
         </div>
 
     )

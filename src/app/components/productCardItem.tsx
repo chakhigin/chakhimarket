@@ -40,7 +40,7 @@ function ProductCardItem(props: ProductCardItemProps) {
                         <div><span className="text-[12px] line-clamp-2">{props.product.name}</span></div>
                         <div className="absolute bottom-2 pt-1">
                             <div className="flex flex-col">
-                                <span className={`${props.product.salePrice ? "text-[9px] text-[#898989]" : "text-[11px] font-bold"}`}>{FormatNumber(props.product.price)} تومان</span>
+                                <span className={`${props.product.salePrice ? "text-[9px] text-[#898989] line-through" : "text-[11px] font-bold"}`}>{FormatNumber(props.product.price)} تومان</span>
                                 {props.product.salePrice && <span className="text-[11px] font-bold">{FormatNumber(props.product.salePrice)} تومان</span>}
                             </div>
                         </div>
